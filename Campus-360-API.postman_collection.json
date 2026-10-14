@@ -1,0 +1,2648 @@
+{
+  "info": {
+    "_postman_id": "95af9d3e-1624-495d-bf8f-034754bbf193",
+    "name": "Campus 360 API",
+    "description": "JWT Authentication APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37998417"
+  },
+  "item": [
+    {
+      "name": "students",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "get By Id",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "9574"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "9574"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 37,\n  \"name\": \"string\",\n  \"email\": \"string\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "update",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"John Updated\",\n  \"email\": \"johnupdated@example.com\",\n  \"department\": \"ISE\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/students/1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    "1"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"string\",\n  \"name\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "9574"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 37,\n  \"name\": \"string\",\n  \"email\": \"string\"\n}"
+                }
+              ]
+            },
+            {
+              "name": "delete",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/students/2",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    "2"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "9574"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "search",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students/search?name=string&page=9797&size=3185&sort=string,string",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "string"
+                    },
+                    {
+                      "key": "page",
+                      "value": "9797"
+                    },
+                    {
+                      "key": "size",
+                      "value": "3185"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "string,string"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/search?name=string&page=9797&size=3185&sort=string,string",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "key": "name",
+                          "value": "string"
+                        },
+                        {
+                          "key": "page",
+                          "value": "9797"
+                        },
+                        {
+                          "key": "size",
+                          "value": "3185"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "string,string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"totalPages\": 3013,\n  \"totalElements\": 8479,\n  \"first\": false,\n  \"last\": false,\n  \"size\": 9529,\n  \"content\": [\n    {\n      \"id\": 8145,\n      \"name\": \"string\",\n      \"email\": \"string\"\n    },\n    {\n      \"id\": 388,\n      \"name\": \"string\",\n      \"email\": \"string\"\n    }\n  ],\n  \"number\": 1820,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": false,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    },\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    }\n  ],\n  \"numberOfElements\": 3455,\n  \"pageable\": {\n    \"offset\": 728,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      },\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": false,\n        \"property\": \"string\",\n        \"ignoreCase\": false\n      }\n    ],\n    \"pageSize\": 5033,\n    \"pageNumber\": 326,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": false\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "item": [
+            {
+              "name": "get Students",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students/page?page=9797&size=3185&sort=string,string",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "9797"
+                    },
+                    {
+                      "key": "size",
+                      "value": "3185"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "string,string"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/page?page=9797&size=3185&sort=string,string",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        "page"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "9797"
+                        },
+                        {
+                          "key": "size",
+                          "value": "3185"
+                        },
+                        {
+                          "key": "sort",
+                          "value": "string,string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"totalPages\": 3013,\n  \"totalElements\": 8479,\n  \"first\": false,\n  \"last\": false,\n  \"size\": 9529,\n  \"content\": [\n    {\n      \"id\": 8145,\n      \"name\": \"string\",\n      \"email\": \"string\"\n    },\n    {\n      \"id\": 388,\n      \"name\": \"string\",\n      \"email\": \"string\"\n    }\n  ],\n  \"number\": 1820,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": false,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    },\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    }\n  ],\n  \"numberOfElements\": 3455,\n  \"pageable\": {\n    \"offset\": 728,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      },\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": false,\n        \"property\": \"string\",\n        \"ignoreCase\": false\n      }\n    ],\n    \"pageSize\": 5033,\n    \"pageNumber\": 326,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": false\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "dashboard",
+          "item": [
+            {
+              "name": "student Dashboard",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students/dashboard",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students",
+                    "dashboard"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/students/dashboard",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "students",
+                        "dashboard"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "get All",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code successful\", function () {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDQ2MTAsImV4cCI6MTc3OTk5MTAxMH0.Nz1dkPs3zYlu-JVr1wBI0Wl4vrcDIQ_X2QDX7ovENLw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/students",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "students"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/students",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 5517,\n    \"name\": \"string\",\n    \"email\": \"string\"\n  },\n  {\n    \"id\": 5769,\n    \"name\": \"string\",\n    \"email\": \"string\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "create",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code successful\", function () {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"summne\",\n  \"email\": \"summne@example.com\",\n  \"department\": \"gothella\"\n}\n",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/students",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "students"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"string\",\n  \"name\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/students",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "students"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 37,\n  \"name\": \"string\",\n  \"email\": \"string\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "courses",
+          "item": [
+            {
+              "name": "{courseId}",
+              "item": [
+                {
+                  "name": "students",
+                  "item": [
+                    {
+                      "name": "{studentId}",
+                      "item": [
+                        {
+                          "name": "assign Student To Course",
+                          "event": [
+                            {
+                              "listen": "test",
+                              "script": {
+                                "exec": [
+                                  "pm.test(\"Status code successful\", function () {\r",
+                                  "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                                  "});"
+                                ],
+                                "type": "text/javascript",
+                                "packages": {},
+                                "requests": {}
+                              }
+                            }
+                          ],
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\r\n  \"studentId\": 1,\r\n  \"courseId\": 1\r\n}\r\n",
+                              "options": {
+                                "raw": {
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/courses/1/students/1",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "courses",
+                                "1",
+                                "students",
+                                "1"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/courses/:courseId/students/:studentId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "courses",
+                                    ":courseId",
+                                    "students",
+                                    ":studentId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "courseId",
+                                      "value": "9574"
+                                    },
+                                    {
+                                      "key": "studentId",
+                                      "value": "9574"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "body": "{\n  \"id\": 598,\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 4384\n}"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "remove Student From Course",
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/courses/:courseId/students/:studentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "courses",
+                                ":courseId",
+                                "students",
+                                ":studentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "courseId",
+                                  "value": "9574"
+                                },
+                                {
+                                  "key": "studentId",
+                                  "value": "9574"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/courses/:courseId/students/:studentId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "courses",
+                                    ":courseId",
+                                    "students",
+                                    ":studentId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "courseId",
+                                      "value": "9574"
+                                    },
+                                    {
+                                      "key": "studentId",
+                                      "value": "9574"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "body": "{\n  \"id\": 598,\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 4384\n}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "update Course",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code successful\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"courseName\": \"Advanced Java\",\n  \"courseCode\": \"CS101\",\n  \"credits\": 5\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/courses/1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "courses",
+                        "1"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 9\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/courses/:courseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "courses",
+                            ":courseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "courseId",
+                              "value": "9574"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 598,\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 4384\n}"
+                    }
+                  ]
+                },
+                {
+                  "name": "delete Course",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code successful\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "DELETE",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/courses/2",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "courses",
+                        "2"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/courses/:courseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "courses",
+                            ":courseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "courseId",
+                              "value": "9574"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "get All Courses",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code successful\", function () {\r",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/courses?page=0&size=10&search=string",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "courses"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "string"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/courses?page=0&size=10&search=string",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "courses"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        },
+                        {
+                          "key": "search",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"totalPages\": 1598,\n  \"totalElements\": 5322,\n  \"first\": false,\n  \"last\": false,\n  \"size\": 7366,\n  \"content\": [\n    {\n      \"id\": 1969,\n      \"courseCode\": \"string\",\n      \"courseName\": \"string\",\n      \"description\": \"string\",\n      \"credits\": 5598\n    },\n    {\n      \"id\": 7426,\n      \"courseCode\": \"string\",\n      \"courseName\": \"string\",\n      \"description\": \"string\",\n      \"credits\": 6269\n    }\n  ],\n  \"number\": 4417,\n  \"sort\": [\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": true\n    },\n    {\n      \"direction\": \"string\",\n      \"nullHandling\": \"string\",\n      \"ascending\": true,\n      \"property\": \"string\",\n      \"ignoreCase\": false\n    }\n  ],\n  \"numberOfElements\": 6219,\n  \"pageable\": {\n    \"offset\": 1661,\n    \"sort\": [\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": false,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      },\n      {\n        \"direction\": \"string\",\n        \"nullHandling\": \"string\",\n        \"ascending\": true,\n        \"property\": \"string\",\n        \"ignoreCase\": true\n      }\n    ],\n    \"pageSize\": 3577,\n    \"pageNumber\": 4828,\n    \"paged\": false,\n    \"unpaged\": true\n  },\n  \"empty\": false\n}"
+                }
+              ]
+            },
+            {
+              "name": "create Course",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code successful\", function () {\r",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseName\": \"summne\",\n  \"courseCode\": \"sum103\",\n  \"credits\": 4\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/courses",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "courses"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 9\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/courses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "courses"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 598,\n  \"courseCode\": \"string\",\n  \"courseName\": \"string\",\n  \"description\": \"string\",\n  \"credits\": 4384\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "marks",
+          "item": [
+            {
+              "name": "student",
+              "item": [
+                {
+                  "name": "{studentId}",
+                  "item": [
+                    {
+                      "name": "get Student Marks",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/marks/student/:studentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "marks",
+                            "student",
+                            ":studentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "studentId",
+                              "value": "9574"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/marks/student/:studentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "marks",
+                                "student",
+                                ":studentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "studentId",
+                                  "value": "9574"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "[\n  {\n    \"id\": 8678,\n    \"subject\": \"string\",\n    \"score\": 7525.494321602122,\n    \"grade\": \"string\",\n    \"studentId\": 7113,\n    \"studentName\": \"string\",\n    \"courseId\": 1700,\n    \"courseName\": \"string\"\n  },\n  {\n    \"id\": 294,\n    \"subject\": \"string\",\n    \"score\": 9189.737850468515,\n    \"grade\": \"string\",\n    \"studentId\": 5496,\n    \"studentName\": \"string\",\n    \"courseId\": 4506,\n    \"courseName\": \"string\"\n  }\n]"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "gpa",
+              "item": [
+                {
+                  "name": "{studentId}",
+                  "item": [
+                    {
+                      "name": "get GPA",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "exec": [
+                              "pm.test(\"Status code successful\", function () {\r",
+                              "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                              "});"
+                            ],
+                            "type": "text/javascript",
+                            "packages": {},
+                            "requests": {}
+                          }
+                        }
+                      ],
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\r\n  \"gpa\": 8.5\r\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/marks/gpa/:studentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "marks",
+                            "gpa",
+                            ":studentId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "studentId",
+                              "value": "9574"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/marks/gpa/:studentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "marks",
+                                "gpa",
+                                ":studentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "studentId",
+                                  "value": "9574"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "1830.679892658661"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "average",
+              "item": [
+                {
+                  "name": "{studentId}",
+                  "item": [
+                    {
+                      "name": "get Average",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "exec": [
+                              "pm.test(\"Status code successful\", function () {\r",
+                              "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                              "});"
+                            ],
+                            "type": "text/javascript",
+                            "packages": {},
+                            "requests": {}
+                          }
+                        }
+                      ],
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/marks/average/1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "marks",
+                            "average",
+                            "1"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/marks/average/:studentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "marks",
+                                "average",
+                                ":studentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "studentId",
+                                  "value": "9574"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "1830.679892658661"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "add Marks",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code successful\", function () {\r",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"courseId\": 1,\n  \"score\": 90,\n  \"studentId\": 1,\n  \"subject\": \"Java\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/marks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "marks"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"courseId\": 1789,\n  \"score\": 32.03932802433973,\n  \"studentId\": 7893,\n  \"subject\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/marks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "marks"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 8217,\n  \"subject\": \"string\",\n  \"score\": 2803.549424711278,\n  \"grade\": \"string\",\n  \"studentId\": 2342,\n  \"studentName\": \"string\",\n  \"courseId\": 5361,\n  \"courseName\": \"string\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attendance",
+          "item": [
+            {
+              "name": "student",
+              "item": [
+                {
+                  "name": "{studentId}",
+                  "item": [
+                    {
+                      "name": "get Student Attendance",
+                      "event": [
+                        {
+                          "listen": "test",
+                          "script": {
+                            "exec": [
+                              "pm.test(\"Status code successful\", function () {\r",
+                              "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                              "});"
+                            ],
+                            "type": "text/javascript",
+                            "packages": {},
+                            "requests": {}
+                          }
+                        }
+                      ],
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/attendance/student/1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "attendance",
+                            "student",
+                            "1"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/attendance/student/:studentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "attendance",
+                                "student",
+                                ":studentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "studentId",
+                                  "value": "9574"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "[\n  {\n    \"id\": 2491,\n    \"date\": \"1952-01-02\",\n    \"status\": \"PRESENT\",\n    \"studentId\": 2233,\n    \"studentName\": \"string\",\n    \"courseId\": 2793,\n    \"courseName\": \"string\"\n  },\n  {\n    \"id\": 6276,\n    \"date\": \"1955-01-22\",\n    \"status\": \"ABSENT\",\n    \"studentId\": 3417,\n    \"studentName\": \"string\",\n    \"courseId\": 7714,\n    \"courseName\": \"string\"\n  }\n]"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "percentage",
+              "item": [
+                {
+                  "name": "get Attendance Percentage",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code successful\", function () {\r",
+                          "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/attendance/percentage?studentId=1&courseId=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "attendance",
+                        "percentage"
+                      ],
+                      "query": [
+                        {
+                          "key": "studentId",
+                          "value": "1"
+                        },
+                        {
+                          "key": "courseId",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/attendance/percentage?studentId=9574&courseId=9574",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "attendance",
+                            "percentage"
+                          ],
+                          "query": [
+                            {
+                              "key": "studentId",
+                              "value": "9574"
+                            },
+                            {
+                              "key": "courseId",
+                              "value": "9574"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "1830.679892658661"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "mark Attendance",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code successful\", function () {\r",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1,\n  \"date\": \"2026-05-28\",\n  \"status\": \"PRESENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/attendance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "attendance"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"courseId\": 8342,\n  \"date\": \"2024-07-30\",\n  \"status\": \"ABSENT\",\n  \"studentId\": 1694\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/attendance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "attendance"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 3859,\n  \"date\": \"1961-06-17\",\n  \"status\": \"ABSENT\",\n  \"studentId\": 9328,\n  \"studentName\": \"string\",\n  \"courseId\": 3792,\n  \"courseName\": \"string\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "item": [
+            {
+              "name": "register",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"admin123\",\n  \"role\": \"ADMIN\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"string\",\n  \"password\": \"string\",\n  \"email\": \"string\",\n  \"role\": \"ADMIN\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "string"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "login",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"JWT token generated\", function () {\r",
+                      "    var jsonData = pm.response.json();\r",
+                      "    pm.expect(jsonData.token).to.not.be.undefined;\r",
+                      "});\r",
+                      "\r",
+                      "var jsonData = pm.response.json();\r",
+                      "pm.environment.set(\"token\", jsonData.token);"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3Nzk5MDYyODcsImV4cCI6MTc3OTk5MjY4N30.RO2RFF5DG6v0TuSXM2RAyw5obM-jLKboTHphSYtME6Q",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"admin@gmail.com\",\n  \"password\": \"admin123\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"password\": \"string\",\n  \"email\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"token\": \"string\"\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "debug",
+      "item": [
+        {
+          "name": "debug",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/debug",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "debug"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/debug",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "debug"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "cookie": [],
+              "body": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "dashboard",
+          "item": [
+            {
+              "name": "admin Dashboard",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/admin/dashboard",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "admin",
+                    "dashboard"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/admin/dashboard",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "admin",
+                        "dashboard"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

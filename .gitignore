@@ -1,0 +1,13 @@
+.idea/
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+**/node_modules/
+**/target/
+**/.venv/
+**/__pycache__/
+**/dist/
+**/test-results/
+**/playwright-report/
