@@ -1,0 +1,206 @@
+[1mdiff --git a/src/main/java/com/example/student_management_system/analytics/dto/DashboardResponseDTO.java b/src/main/java/com/example/student_management_system/analytics/dto/DashboardResponseDTO.java[m
+[1mindex db10655..546053a 100644[m
+[1m--- a/src/main/java/com/example/student_management_system/analytics/dto/DashboardResponseDTO.java[m
+[1m+++ b/src/main/java/com/example/student_management_system/analytics/dto/DashboardResponseDTO.java[m
+[36m@@ -13,6 +13,12 @@[m [mpublic class DashboardResponseDTO {[m
+ [m
+     private long totalStudents;[m
+ [m
+[32m+[m[32m    // Added for admin dashboard display[m
+[32m+[m[32m    private long totalTeachers;[m
+[32m+[m
+[32m+[m[32m    // Added for admin dashboard display[m
+[32m+[m[32m    private long totalCourses;[m
+[32m+[m
+     private double averageAttendance;[m
+ [m
+     private double averageMarks;[m
+[1mdiff --git a/src/main/java/com/example/student_management_system/analytics/service/AnalyticsServiceImpl.java b/src/main/java/com/example/student_management_system/analytics/service/AnalyticsServiceImpl.java[m
+[1mindex e63ce37..e5f819d 100644[m
+[1m--- a/src/main/java/com/example/student_management_system/analytics/service/AnalyticsServiceImpl.java[m
+[1m+++ b/src/main/java/com/example/student_management_system/analytics/service/AnalyticsServiceImpl.java[m
+[36m@@ -5,15 +5,19 @@[m [mimport com.example.student_management_system.analytics.dto.DashboardResponseDTO;[m
+ import com.example.student_management_system.analytics.dto.StudentRiskDTO;[m
+ import com.example.student_management_system.analytics.util.RiskAnalysisUtil;[m
+ import com.example.student_management_system.attendance.repository.AttendanceRepository;[m
+[32m+[m[32mimport com.example.student_management_system.course.repository.CourseRepository;[m
+ import com.example.student_management_system.enrollment.repository.EnrollmentRepository;[m
+ import com.example.student_management_system.marks.repository.MarksRepository;[m
+ import com.example.student_management_system.student.entity.Student;[m
+ import com.example.student_management_system.student.repository.StudentRepository;[m
+[32m+[m[32mimport com.example.student_management_system.teacher.repository.TeacherRepository;[m
+ import lombok.RequiredArgsConstructor;[m
+ import org.springframework.data.domain.PageRequest;[m
+ import org.springframework.stereotype.Service;[m
+ [m
+ import java.util.List;[m
+[32m+[m[32mimport java.util.Map;[m
+[32m+[m[32mimport java.util.stream.Collectors;[m
+ [m
+ @Service[m
+ @RequiredArgsConstructor[m
+[36m@@ -27,13 +31,25 @@[m [mpublic class AnalyticsServiceImpl implements AnalyticsService {[m
+ [m
+     private final EnrollmentRepository enrollmentRepository;[m
+ [m
+[32m+[m[32m    private final TeacherRepository teacherRepository;[m
+[32m+[m
+[32m+[m[32m    private final CourseRepository courseRepository;[m
+[32m+[m
+     @Override[m
+     public DashboardResponseDTO getDashboardAnalytics() {[m
+ [m
+         long totalStudents =[m
+                 studentRepository.getTotalStudents();[m
+ [m
+[31m-        Double averageAttendance = 0.0;[m
+[32m+[m[32m        long totalTeachers =[m
+[32m+[m[32m                teacherRepository.count();[m
+[32m+[m
+[32m+[m[32m        long totalCourses =[m
+[32m+[m[32m                courseRepository.count();[m
+[32m+[m
+[32m+[m[32m        // FIX: Use real attendance data instead of hardcoded 0.0[m
+[32m+[m[32m        Double averageAttendance =[m
+[32m+[m[32m                attendanceRepository.getAverageAttendance();[m
+ [m
+         Double averageMarks =[m
+                 marksRepository.getAverageMarks();[m
+[36m@@ -50,6 +66,8 @@[m [mpublic class AnalyticsServiceImpl implements AnalyticsService {[m
+ [m
+         return new DashboardResponseDTO([m
+                 totalStudents,[m
+[32m+[m[32m                totalTeachers,[m
+[32m+[m[32m                totalCourses,[m
+                 averageAttendance != null[m
+                         ? averageAttendance[m
+                         : 0,[m
+[36m@@ -65,29 +83,30 @@[m [mpublic class AnalyticsServiceImpl implements AnalyticsService {[m
+     @Override[m
+     public List<StudentRiskDTO> getStudentRisks() {[m
+ [m
+[31m-        List<Student> students =[m
+[31m-                studentRepository.findAll();[m
+[32m+[m[32m        List<Student> students = studentRepository.findAll();[m
+[32m+[m
+[32m+[m[32m        Map<Long, Double> attendanceMap = attendanceRepository.getAverageAttendanceAllStudents()[m
+[32m+[m[32m                .stream()[m
+[32m+[m[32m                .filter(row -> row != null && row.length >= 2 && row[0] != null)[m
+[32m+[m[32m                .collect(Collectors.toMap([m
+[32m+[m[32m                        row -> ((Number) row[0]).longValue(),[m
+[32m+[m[32m                        row -> row[1] != null ? ((Number) row[1]).doubleValue() : 0.0,[m
+[32m+[m[32m                        (existing, replacement) -> existing[m
+[32m+[m[32m                ));[m
+[32m+[m
+[32m+[m[32m        Map<Long, Double> marksMap = marksRepository.getAverageMarksAllStudents()[m
+[32m+[m[32m                .stream()[m
+[32m+[m[32m                .filter(row -> row != null && row.length >= 2 && row[0] != null)[m
+[32m+[m[32m                .collect(Collectors.toMap([m
+[32m+[m[32m                        row -> ((Number) row[0]).longValue(),[m
+[32m+[m[32m                        row -> row[1] != null ? ((Number) row[1]).doubleValue() : 0.0,[m
+[32m+[m[32m                        (existing, replacement) -> existing[m
+[32m+[m[32m                ));[m
+ [m
+         return students.stream()[m
+                 .map(student -> {[m
+[31m-[m
+[31m-                    Double attendance = 0.0;[m
+[31m-[m
+[31m-                    Double marks =[m
+[31m-                            marksRepository[m
+[31m-                                    .getAverageMarksByStudent([m
+[31m-                                            student.getId()[m
+[31m-                                    );[m
+[31m-[m
+[31m-                    double attendanceValue =[m
+[31m-                            attendance != null[m
+[31m-                                    ? attendance[m
+[31m-                                    : 0;[m
+[31m-[m
+[31m-                    double marksValue =[m
+[31m-                            marks != null[m
+[31m-                                    ? marks[m
+[31m-                                    : 0;[m
+[32m+[m[32m                    double attendanceValue = attendanceMap.getOrDefault(student.getId(), 0.0);[m
+[32m+[m[32m                    double marksValue = marksMap.getOrDefault(student.getId(), 0.0);[m
+ [m
+                     return new StudentRiskDTO([m
+                             student.getId(),[m
+[36m@@ -103,4 +122,3 @@[m [mpublic class AnalyticsServiceImpl implements AnalyticsService {[m
+                 .toList();[m
+     }[m
+ }[m
+[31m-[m
+[1mdiff --git a/src/main/java/com/example/student_management_system/attendance/repository/AttendanceRepository.java b/src/main/java/com/example/student_management_system/attendance/repository/AttendanceRepository.java[m
+[1mindex 96cdbaa..6a8e702 100644[m
+[1m--- a/src/main/java/com/example/student_management_system/attendance/repository/AttendanceRepository.java[m
+[1m+++ b/src/main/java/com/example/student_management_system/attendance/repository/AttendanceRepository.java[m
+[36m@@ -64,8 +64,25 @@[m [mimport java.util.Optional;[m
+             Long studentId[m
+     );[m
+ [m
+[32m+[m[32m    @Query("""[m
+[32m+[m[32m        SELECT a.student.id,[m
+[32m+[m[32m               AVG([m
+[32m+[m[32m                   CASE[m
+[32m+[m[32m                       WHEN a.present = true THEN 100[m
+[32m+[m[32m                       ELSE 0[m
+[32m+[m[32m                   END[m
+[32m+[m[32m               )[m
+[32m+[m[32m        FROM Attendance a[m
+[32m+[m[32m        GROUP BY a.student.id[m
+[32m+[m[32m    """)[m
+[32m+[m[32m    List<Object[]> getAverageAttendanceAllStudents();[m
+[32m+[m
+     List<Attendance> findByCourseId(Long courseId);[m
+ [m
+[32m+[m[32m    List<Attendance> findByStudentId(Long studentId);[m
+[32m+[m
+[32m+[m[32m    List<Attendance> findByStudentIdAndCourseId(Long studentId, Long courseId);[m
+[32m+[m
+             void deleteByStudentIdAndCourseId([m
+                     Long studentId,[m
+                     Long courseId[m
+[36m@@ -109,6 +126,24 @@[m [mWHERE a.course.teacher.id = :teacherId[m
+                     LocalDate attendanceDate[m
+             );[m
+ [m
+[32m+[m[32m            /**[m
+[32m+[m[32m             * Returns one row per course with aggregate totals computed at DB level.[m
+[32m+[m[32m             * Each element is Object[]: [courseId(Long), courseName(String), total(Long), present(Long)][m
+[32m+[m[32m             */[m
+[32m+[m[32m            @Query("""[m
+[32m+[m[32mSELECT a.course.id,[m
+[32m+[m[32m       a.course.courseName,[m
+[32m+[m[32m       COUNT(a),[m
+[32m+[m[32m       SUM(CASE WHEN a.present = true THEN 1 ELSE 0 END)[m
+[32m+[m[32mFROM Attendance a[m
+[32m+[m[32mWHERE a.student.id = :studentId[m
+[32m+[m[32mGROUP BY a.course.id, a.course.courseName[m
+[32m+[m[32m""")[m
+[32m+[m[32m            List<Object[]> findCourseWiseAttendanceSummaryByStudent([m
+[32m+[m[32m                    @Param("studentId") Long studentId[m
+[32m+[m[32m            );[m
+[32m+[m
+ [m
+ [m
+ }[m
+[41m+[m
+[1mdiff --git a/src/main/java/com/example/student_management_system/marks/repository/MarksRepository.java b/src/main/java/com/example/student_management_system/marks/repository/MarksRepository.java[m
+[1mindex 2d23e93..7345f69 100644[m
+[1m--- a/src/main/java/com/example/student_management_system/marks/repository/MarksRepository.java[m
+[1m+++ b/src/main/java/com/example/student_management_system/marks/repository/MarksRepository.java[m
+[36m@@ -27,6 +27,13 @@[m [mpublic interface MarksRepository[m
+     """)[m
+     Double getAverageMarksByStudent(Long studentId);[m
+ [m
+[32m+[m[32m    @Query("""[m
+[32m+[m[32m        SELECT m.student.id, AVG(m.score)[m
+[32m+[m[32m        FROM Marks m[m
+[32m+[m[32m        GROUP BY m.student.id[m
+[32m+[m[32m    """)[m
+[32m+[m[32m    List<Object[]> getAverageMarksAllStudents();[m
+[32m+[m
+     // REQUIRED FOR MarksServiceImpl[m
+     List<Marks> findByStudentId(Long studentId);[m
+ [m

@@ -1,0 +1,66 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: campus360-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: student_management_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - student-mysql-data:/var/lib/mysql
+    networks:
+      - campus360-network
+
+  ai-ml-service:
+    build:
+      context: ../ai-ml-service
+      dockerfile: Dockerfile
+    image: campus360-ai-ml:latest
+    container_name: campus360-ai-ml
+    ports:
+      - "8000:8000"
+    networks:
+      - campus360-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: campus360-backend:latest
+    container_name: campus360-backend
+    depends_on:
+      - mysql
+      - ai-ml-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/student_management_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+      AI_ML_SERVICE_URL: http://ai-ml-service:8000
+    ports:
+      - "8080:8080"
+    networks:
+      - campus360-network
+
+  frontend:
+    build:
+      context: ../campus-360-frontend
+      dockerfile: Dockerfile
+    image: campus360-frontend:latest
+    container_name: campus360-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    networks:
+      - campus360-network
+
+volumes:
+  student-mysql-data:
+    external: true
+    name: student_management_system_student-mysql-data
+
+networks:
+  campus360-network:
+    driver: bridge
