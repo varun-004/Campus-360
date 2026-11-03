@@ -1,3 +1,4 @@
+package com.example.student_management_system.report.dto;
 
 import com.example.student_management_system.marks.dto.MarksResponse;
 
@@ -15,16 +16,10 @@ import java.util.List;
 public class StudentReportResponse {
 
     private Long studentId;
-
     private String studentName;
-
     private String email;
-
     private Double attendancePercentage;
-
     private Double averageMarks;
-
     private Double gpa;
-
     private List<MarksResponse> marks;
 }

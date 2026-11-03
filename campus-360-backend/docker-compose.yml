@@ -1,10 +1,11 @@
+
 services:
 
   mysql:
     image: mysql:8.0
     container_name: campus360-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: student_management_db
     ports:
       - "3307:3306"
@@ -20,7 +21,7 @@ services:
     image: campus360-ai-ml:latest
     container_name: campus360-ai-ml
     ports:
-      - "8000:8000"
+      - "8001:8000"
     networks:
       - campus360-network
 
@@ -36,7 +37,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/student_management_db
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       AI_ML_SERVICE_URL: http://ai-ml-service:8000
     ports:
       - "8080:8080"
@@ -52,7 +53,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "5173:80"
+      - "5174:80"
     networks:
       - campus360-network
 
